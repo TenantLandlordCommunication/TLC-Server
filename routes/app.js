@@ -1,8 +1,8 @@
 const express = require('express');
-
 const router = express.Router();
-
-
+const upload = require('multer')();
+const AWS  = require('aws-sdk');
+const uuid = require('uuid/v4');
 const queries = require('../db/queries')
 
 router.get('/', (req,res) => {
@@ -30,14 +30,19 @@ router.get('/property/:id', (req,res) =>{
     })
   })
 
-router.post('/property', (req,res) =>{
-  console.log(req.body);
-  queries.create(req.body)
-    .then(result => {
-      res.send(result)
-    })
+// router.post('/property', (req,res) =>{
+//   console.log(req.body);
+//   queries.create(req.body)
+//     .then(result => {
+//       res.send(result)
+//     })
+// })
 
-  // res.send('wat')
+router.get('/tenants', (req, res) =>{
+  queries.getTenants()
+  .then(tenants =>{
+    res.json(tenants)
+  })
 })
 
 
