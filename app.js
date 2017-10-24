@@ -10,6 +10,7 @@ app.use(bodyParser.json())
 const routes = require('./routes/app');
 
 app.use(routes);
+app.use(express.static(__dirname + '/dist'))
 
 const port = process.env.PORT || 3000;
 
