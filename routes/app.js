@@ -5,6 +5,10 @@ const router = express.Router();
 
 const queries = require('../db/queries')
 
+router.get('/', (req,res) => {
+  res.json[{title:"Tenant Landlord Communication"}]
+})
+
 router.get('/landlord', (req,res) =>{
   queries.getLandlord()
     .then(landlords => {
