@@ -5,15 +5,25 @@ const AWS  = require('aws-sdk');
 const uuid = require('uuid/v4');
 const queries = require('../db/queries')
 
-router.get('/', (req,res) => {
-  res.json[{title:"Tenant Landlord Communication"}]
-})
-
 router.get('/landlord', (req,res) =>{
   queries.getLandlord()
     .then(landlords => {
       res.json(landlords)
     })
+})
+
+router.get('/landlord:id', (req, res) =>{
+  queries.getlandlordOne(req.parms.id)
+  .then(landlord => {
+    res.json(landlord)
+  })
+})
+
+router.get('/tenants', (req, res) =>{
+  queries.getTenants()
+  .then(tenants =>{
+    res.json(tenants)
+  })
 })
 
 router.get('/property', (req,res) => {
@@ -38,12 +48,8 @@ router.get('/property/:id', (req,res) =>{
 //     })
 // })
 
-router.get('/tenants', (req, res) =>{
-  queries.getTenants()
-  .then(tenants =>{
-    res.json(tenants)
-  })
-})
+
+
 
 
 

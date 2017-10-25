@@ -7,6 +7,10 @@ module.exports = {
     return knex('landlord')
   },
 
+  getTenants:function(){
+    return knex('tenant');
+  },
+
   getProperty:function(){
     return knex('property');
   },
@@ -15,13 +19,15 @@ module.exports = {
     return knex('property').where('id',id)
   },
 
+  getlandlordOne: function(id){
+    return knex('landlord').where('id',id)
+  }
+
   // create: function(property){
   //   return knex('property').insert(property).returning('*');
   // },
 
-  getTenants:function(){
-    return knex('tenant');
-  }
+
 
 
 }
