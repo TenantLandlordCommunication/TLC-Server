@@ -17,6 +17,22 @@ exports.seed = function(knex, Promise) {
           number: '9546882346',
           rentdue: 1450,
           property_id: 2
+        },
+        {
+          id: 3,
+          name: 'Hadley Dexter',
+          email: 'HDexter@aol.com',
+          number: 8042145682,
+          rentdue: 20000,
+          property_id: 3
+        },
+        {
+          id: 4,
+          name: 'Colton Yorick',
+          email: 'YorickC@gmail.com',
+          number: 9048791453,
+          rentdue: 1500,
+          property_id: 4
         }];
 
         return knex('tenant').insert(tenants)

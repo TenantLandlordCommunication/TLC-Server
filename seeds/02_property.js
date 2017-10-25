@@ -20,6 +20,24 @@ exports.seed = function(knex, Promise) {
           rent: 1450,
           img: '',
           landlord_id: 1
+        },
+        {
+          id:3,
+          address: '1644 Platt St.',
+          unit: '',
+          zipcode: 80202,
+          rent: 30000,
+          img: '',
+          landlord_id: 1
+        },
+        {
+          id: 4,
+          address: '804 S. Plummer',
+          unit: '',
+          zipcode: 80244,
+          rent: 1500,
+          img: '',
+          landlord_id:1
         }]
         return knex('property').insert(properties)
     });
