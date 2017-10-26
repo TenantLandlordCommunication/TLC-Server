@@ -4,6 +4,7 @@ const upload = require('multer')();
 const AWS  = require('aws-sdk');
 const uuid = require('uuid/v4');
 const queries = require('../db/queries')
+const knex = require('../db/knex')
 
 router.get('/landlord', (req,res) =>{
   queries.getLandlord()
@@ -40,14 +41,13 @@ router.get('/property/:id', (req,res) =>{
     })
   })
 
-// router.post('/property', (req,res) =>{
-//   console.log(req.body);
-//   queries.create(req.body)
-//     .then(result => {
-//       res.send(result)
-//     })
-// })
+router.get('/tenant-address', (req,res) =>{
+  queries.getTenantsAddress()
+  .then(tenants =>{
+    res.json(tenants)
+  })
 
+})
 
 
 
