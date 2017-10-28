@@ -6,6 +6,7 @@ const uuid = require('uuid/v4');
 const queries = require('../db/queries')
 const knex = require('../db/knex')
 
+
 router.get('/landlord', (req,res) =>{
   queries.getLandlord()
     .then(landlords => {
