@@ -56,6 +56,20 @@ router.post('/property', ( req, res) =>{
   })
 })
 
+router.post('/tenants', ( req, res) =>{
+  queries.postTenant(req.body)
+  .then(tenant =>{
+    res.json(tenant)
+  })
+})
+
+
+router.delete('/property', (req,res) =>{
+  queries.deleteProperty(req.body)
+  .then(property =>{
+    res.json(property)
+  })
+})
 
 
 

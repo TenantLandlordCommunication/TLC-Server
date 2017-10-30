@@ -32,8 +32,13 @@ module.exports = {
     .returning('*')
   },
 
-  putProperty: function (property) {
-    return knex('property').insert(property)
+  postTenant: function (tenant) {
+    return knex('tenant').insert(tenant)
+    .returning('*')
+  },
+
+  deleteProperty: function(property) {
+    return knex('property').delete(property)
     .returning('*')
   }
 
