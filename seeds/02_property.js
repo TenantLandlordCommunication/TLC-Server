@@ -1,7 +1,7 @@
 
 exports.seed = function(knex, Promise) {
 
-  return knex.raw('DELETE FROM "property"; ALTER SEQUENCE property_id_seq RESTART WITH 3;')
+  return knex.raw('DELETE FROM "property"; ALTER SEQUENCE property_id_seq RESTART WITH 5;')
 
     .then(function () {
         var properties = [{

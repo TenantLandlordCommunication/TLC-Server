@@ -22,9 +22,19 @@ module.exports = {
   getlandlordOne: function(id){
     return knex('landlord').where('id',id)
   },
-  
+
   getTenantsAddress: function(){
     return knex.select('*').from('property').leftOuterJoin('tenant', 'property.id', 'tenant.property_id')
+  },
+
+  postProperty: function (property) {
+    return knex('property').insert(property)
+    .returning('*')
+  },
+
+  putProperty: function (property) {
+    return knex('property').insert(property)
+    .returning('*')
   }
 
 

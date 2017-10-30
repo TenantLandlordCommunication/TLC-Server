@@ -1,5 +1,5 @@
 exports.seed = function(knex, Promise) {
-  return knex.raw('DELETE FROM "landlord"; ALTER SEQUENCE landlord_id_seq RESTART WITH 1;')
+  return knex.raw('DELETE FROM "landlord"; ALTER SEQUENCE landlord_id_seq RESTART WITH 2;')
 
     .then(function(){
       var landlords = [{

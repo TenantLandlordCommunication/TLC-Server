@@ -47,7 +47,13 @@ router.get('/tenant-address', (req,res) =>{
   .then(tenants =>{
     res.json(tenants)
   })
+})
 
+router.post('/property', ( req, res) =>{
+  queries.postProperty(req.body)
+  .then(property =>{
+    res.json(property)
+  })
 })
 
 
