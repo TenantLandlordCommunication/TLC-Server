@@ -63,13 +63,13 @@ router.post('/tenants', ( req, res) =>{
   })
 })
 
-
-router.delete('/property', (req,res) =>{
-  queries.deleteProperty(req.body)
-  .then(property =>{
-    res.json(property)
-  })
-})
+// 
+// router.delete('/property', (req,res) =>{
+//   queries.deleteProperty(req.body)
+//   .then(property =>{
+//     res.json(property)
+//   })
+// })
 
 
 
