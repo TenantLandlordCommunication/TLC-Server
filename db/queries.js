@@ -37,10 +37,11 @@ module.exports = {
     .returning('*')
   },
 
-  // deleteProperty: function(property) {
-  //   return knex('property').delete(property)
-  //   .returning(property)
-  // }
+  deleteProperty: function(id) {
+    console.log(id)
+    return knex('property').where('id',id).del()
+    .returning('*')
+  }
 
 
 
