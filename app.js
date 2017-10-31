@@ -1,8 +1,9 @@
 const express = require('express')
 const bodyParser = require('body-parser');
 const cors = require('cors')
-
 const app = express();
+const twilio = require('twilio');
+const client = require('twilio')('AC7ad69373d4c5cdb224d388a90242387e','32fea1f83b5ec219f9ca887a7120095b');
 
 app.use(cors());
 

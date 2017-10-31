@@ -19,6 +19,10 @@ module.exports = {
     return knex('property').where('id',id)
   },
 
+  getOneTenant:function(id){
+    return knex('tenant').where('id',id)
+  },
+
   getlandlordOne: function(id){
     return knex('landlord').where('id',id)
   },
@@ -39,6 +43,11 @@ module.exports = {
 
   deleteProperty: function(id) {
     return knex('property').where('id',id).del()
+    .returning('*')
+  },
+
+  deleteTenant: function(id) {
+    return knex('tenant').where('id',id).del()
     .returning('*')
   }
 

@@ -5,7 +5,17 @@ const AWS  = require('aws-sdk');
 const uuid = require('uuid/v4');
 const queries = require('../db/queries')
 const knex = require('../db/knex')
+const client = require('twilio')('AC7ad69373d4c5cdb224d388a90242387e','32fea1f83b5ec219f9ca887a7120095b');
 
+router.get('/confirmation', function (req, res, next) {
+  client.messages.create({
+    to: "+19546581253",
+    from: "+19549519256",
+    body: "Rent is Due!!!",
+  }, function(err, message) {
+    console.log(message.sid);
+  });
+})
 
 router.get('/landlord', (req,res) =>{
   queries.getLandlord()
@@ -42,6 +52,13 @@ router.get('/property/:id', (req,res) =>{
     })
   })
 
+router.get('/tenants/:id', (req,res) =>{
+  queries.getOneTenant(req.params.id)
+    .then(id => {
+      res.json(id)
+    })
+  })
+
 router.get('/tenant-address', (req,res) =>{
   queries.getTenantsAddress()
   .then(tenants =>{
@@ -68,6 +85,13 @@ router.delete('/property/:id', (req,res) =>{
   queries.deleteProperty(req.params.id)
   .then(property =>{
     res.json(property)
+  })
+})
+
+router.delete('/tenants/:id', (req,res) =>{
+  queries.deleteTenant(req.params.id)
+  .then(tenant =>{
+    res.json(tenant)
   })
 })
 
