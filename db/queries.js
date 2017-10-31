@@ -38,7 +38,6 @@ module.exports = {
   },
 
   deleteProperty: function(id) {
-    console.log(id)
     return knex('property').where('id',id).del()
     .returning('*')
   }
