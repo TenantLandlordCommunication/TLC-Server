@@ -76,7 +76,15 @@ router.post('/property', ( req, res) =>{
 router.post('/tenants', ( req, res) =>{
   queries.postTenant(req.body)
   .then(tenant =>{
+
     res.json(tenant)
+  })
+})
+
+router.put('/property/:id', (req,res)=>{
+  queries.updateProperty(req.params.id, req.body)
+  .then (data => {
+    res.json(data)
   })
 })
 

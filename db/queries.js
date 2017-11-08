@@ -37,8 +37,24 @@ module.exports = {
   },
 
   postTenant: function (tenant) {
+    return knex.select('*').from('property').then((property)=>{
+      // for (var i = 0; i < property.length; i++) {
+      //   if (property.address == tenant.address) {
+      //
+      //   }
+      // }
+    })
+    //get all properties
+    //loop through all properties
+    //when property address matches tenant address add property.id - tenant.property.id
+    //delete address property from tenant
     return knex('tenant').insert(tenant)
     .returning('*')
+  },
+
+  updateProperty: function(id, body) {
+    return knex('property').where('id',id).update(body)
+      .returning('*')
   },
 
   deleteProperty: function(id) {
